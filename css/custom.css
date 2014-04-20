@@ -11,3 +11,6 @@ img{
     white-space: normal;
     text-align: justify;
 }
+#main-page ul li p{
+    height: 15px;
+}

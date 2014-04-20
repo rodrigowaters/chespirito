@@ -22,10 +22,15 @@ $(document).ready(function() {
             detals.find('img').prop('src', 'images/' + nodeIndex + '.png');
             var appendDetals = '<li data-role="list-divider">Descrição</li><li>' + personagem.description + '</li>';
             appendDetals += '<li data-role="list-divider">Ator</li><li>' + personagem.actor + '</li>';
+            var audio = 1;
             if (personagem.phrases.length > 0) {
                 appendDetals += '<li data-role="list-divider">Frases</li>';
                 for (var key in personagem.phrases) {
-                    appendDetals += '<li>' + personagem.phrases[key] + '</li>';
+                    if ($.isPlainObject(personagem.phrases[key])) {
+                        appendDetals += '<li><a href="#">' + personagem.phrases[key].text + '<audio><source src="sounds/' + nodeIndex + '_' + audio++ + '.wav" type="audio/wav"></audio></a></li>';
+                    } else {
+                        appendDetals += '<li>' + personagem.phrases[key] + '</li>';
+                    }
                 }
             }
             if (personagem.nicknames.length > 0) {
@@ -34,13 +39,7 @@ $(document).ready(function() {
                     appendDetals += '<li>' + personagem.nicknames[key] + '</li>';
                 }
             }
-            if (personagem.audios > 0) {
-                appendDetals += '<li data-role="list-divider">Audios</li>';
-                for (var key = 1; key <= personagem.audios; key++) {
-                    appendDetals += '<li><a href="#">' + key + '<audio><source src="sounds/'+nodeIndex+'_'+key+'.wav" type="audio/wav"></audio></a></li>';
-                }
-            }
-            detals.find('ul').html(appendDetals).listview().listview('refresh').find('a').click(function(){
+            detals.find('ul').html(appendDetals).listview().listview('refresh').find('a').click(function() {
                 var audio = $(this).find('audio')[0];
                 audio.play();
             });
