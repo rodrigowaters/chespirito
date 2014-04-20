@@ -1,0 +1,13 @@
+audio{
+    float: right;
+}
+#imagem{
+    text-align: center;
+}
+img{
+    width: 100%
+}
+.ui-listview > .ui-li-static, .ui-listview > .ui-li-divider, .ui-listview > li > a.ui-btn {
+    white-space: normal;
+    text-align: justify;
+}
