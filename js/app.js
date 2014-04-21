@@ -6,7 +6,7 @@ $(document).ready(function() {
         var item = [];
         $.each(data, function(imagem, personagem) {
             personagens[imagem] = personagem;
-            item.push('<li id_personagem="' + imagem + '"><a href="#"><img src="images/' + imagem + '.png" class="ui-li-thumb"><h2>' + personagem.name + '</h2><p>' + personagem.description + '</p></a></li>');
+            item.push('<li id_personagem="' + imagem + '"><a href="#"><img src="images/personagens/' + imagem + '.png" class="ui-li-thumb"><h2>' + personagem.name + '</h2><p>' + personagem.description + '</p></a></li>');
         });
         $("<ul/>", {
             "data-role": "listview",
@@ -19,7 +19,7 @@ $(document).ready(function() {
             var personagem = personagens[nodeIndex];
             $(page_detals).find('div[data-role="header"] h1').text(personagem.name);
             var detals = $(page_detals).find('div[role="main"]');
-            detals.find('img').prop('src', 'images/' + nodeIndex + '.png');
+            detals.find('img').prop('src', 'images/personagens/' + nodeIndex + '.png');
             var appendDetals = '<li data-role="list-divider">Descrição</li><li>' + personagem.description + '</li>';
             appendDetals += '<li data-role="list-divider">Ator</li><li>' + personagem.actor + '</li>';
             var audio = 1;
