@@ -6,13 +6,13 @@ $(document).ready(function() {
         var item = [];
         $.each(data, function(imagem, personagem) {
             $personagens[imagem] = personagem;
-            var $template = '<a id_personagem="' + imagem + '" class="item item-avatar item-button-right" href="#"><img src="images/personagens/' + imagem + '.png"><h2>' + personagem.name + '</h2><button class="button button-positive"><i class="icon ion-arrow-right-a"></i></button></a>';
+            var $template = '<div id_personagem="' + imagem + '" class="item item-avatar item-button-right"><img src="images/personagens/' + imagem + '.png"><h2>' + personagem.name + '</h2><button class="button button-positive"><i class="icon ion-arrow-right-a"></i></button></div>';
             item.push($template);
         });
         $("<ul/>", {
             "class": "list",
             html: item.join("")
-        }).appendTo("main#main article").find("a").click(function() {
+        }).appendTo("main#main article").find("div.item").click(function() {
             var $nodeIndex = $(this).attr('id_personagem');
             var $personagem = $personagens[$nodeIndex];
             var $audio = 1;
