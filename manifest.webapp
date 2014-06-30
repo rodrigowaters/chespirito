@@ -1,7 +1,7 @@
 {
     "name": "Chespirito",
-    "version": "0.1",
-    "description": "Mas nao se irrite",
+    "version": "1.0",
+    "description": "Mas não se irrite",
     "launch_path": "/index.html",
     "fullscreen": "true",
     "icons": {
