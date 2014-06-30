@@ -16,8 +16,6 @@ main article{height: calc(100% - 44px);overflow: auto;overflow-x: hidden;}
 main#main.main_to_left{animation: 0.4s ease 0s normal forwards 1 currentToLeft;}
 main#main.left_to_main{animation: 0.4s ease 0s normal forwards 1 leftToCurrent;}
 main#main{height: 100%;}
-main#main header.bar-subheader,main#main section header.bar-subheader div.bar-header{padding: 0px;}
-main#main header.bar-subheader div.bar-header{padding-left: 5px;padding-right: 5px;}
 
 main#view{position: absolute;top: 0; transform: translateX(100%);width: 100%;height: 100%}
 main#view.right_to_main{animation: rightToCurrent 0.4s forwards;}
