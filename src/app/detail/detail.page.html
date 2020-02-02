@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            {{name}}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card>
+        <ion-card-header>
+            <!--            <img src="assets/personagens/{{key}}.png">-->
+            <ion-card-title>{{name}}</ion-card-title>
+            <ion-card-subtitle>Ator : {{actor}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+
+            <p>{{description}}</p>
+
+            <ion-item-group>
+
+                <ion-item-divider>
+                    <ion-label>Frases</ion-label>
+                </ion-item-divider>
+                <ion-item *ngFor="let phrase of phrases | keyvalue">
+                    <ion-label>{{phrase.value.text}}</ion-label>
+                    <ion-icon *ngIf="phrase.value.hasAudio" name="mic" slot="end" (click)="playAudio(key, phrase.key)"></ion-icon>
+                </ion-item>
+
+                <ion-item-divider>
+                    <ion-label>Apelidos</ion-label>
+                </ion-item-divider>
+                <ion-item *ngFor="let nickname of nicknames">
+                    <ion-label>{{nickname}}</ion-label>
+                </ion-item>
+
+            </ion-item-group>
+
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>
