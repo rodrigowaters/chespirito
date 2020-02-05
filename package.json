@@ -11,7 +11,7 @@
     "app:build": "ionic cordova build --release",
     "app:emulate": "ionic cordova emulate",
     "app:run": "ionic cordova run",
-    "app:sign": "jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore chespirito.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk alias_name",
+    "app:sign": "jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore chespirito.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk chespirito",
     "app:create": "zipalign -v 4 platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk chespirito.apk",
     "deploy": "ionic build --prod -- --base-href http://rodrigowaters.github.io/chespirito/ && npx angular-cli-ghpages --dir=www --name='Rodrigo Silva' --email=rdrgwtrs@gmail.com",
     "test": "ng test",
