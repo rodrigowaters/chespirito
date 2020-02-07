@@ -51,29 +51,19 @@ export class DetailPage {
 
         let index = parseInt(key) + 1;
         let audioPath = 'assets/sounds/'.concat(personagem).concat('_').concat(index.toString()).concat('.wav');
-        let audioToken = 'uniqueId1';
+        let audioToken = 'audioToken';
 
-        this.nativeAudio.preloadSimple(audioToken, audioPath).then(
-            () => {
-                this.nativeAudio.play(audioToken).then(
-                    () => {
-                        this.nativeAudio.unload(audioToken).then(
-                            () => {
-                            },
-                            () => {
-                                this.presentAlert('Nao foi possivel remover o audio '.concat(audioPath))
-                            }
-                        );
-                    },
-                    () => {
-                        this.presentAlert('Nao foi possivel executar o audio '.concat(audioPath))
-                    }
-                )
-            },
-            () => {
-                this.presentAlert('Nao foi possivel carregar o audio '.concat(audioPath))
-            }
-        );
+        this.nativeAudio.unload(audioToken).finally(()=>{
+            this.nativeAudio.preloadSimple(audioToken, audioPath).then(
+                () => {
+                    this.nativeAudio.play(audioToken).then();
+                },
+                () => {
+                    this.presentAlert('Nao foi possivel carregar o audio '.concat(audioPath));
+                }
+            );
+        });
+        
     }
 
 }
